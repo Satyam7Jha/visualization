@@ -95,7 +95,7 @@ export const BaseChart = ({ options }:{
         <LegendContainer CustomLegendComponent={CustomLegendComponent}  legendItems={legendItems} />
       )}
 
-{
+{       XAxisComponent &&
         xTicks &&
         xTicks.length > 0 &&
         xTicks.map((tick) => {
@@ -105,10 +105,11 @@ export const BaseChart = ({ options }:{
               key={tick.pos}
               tick={tick}
               updateChartMargin={isBarChart ? undefined : updateChartMargin}
+              tickRenderer={XAxisComponent}
             />
           );
         })} 
-{
+{      YAxisComponent &&
         yTicks &&
         yTicks.length > 0 &&
         yTicks.map((tick) => {
@@ -119,6 +120,7 @@ export const BaseChart = ({ options }:{
               className={isBarChart ? '' : 'transform -translate-y-1/2'}
               tick={tick}
               updateChartMargin={isBarChart ? updateChartMargin : undefined}
+              tickRenderer={YAxisComponent}
             />
           );
         })}

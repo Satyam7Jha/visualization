@@ -12,7 +12,7 @@ export const LabelComponent = ({
   tick: Tick;
   className?: string;
   updateChartMargin?: () => void;
-  tickRenderer?: (props: { tick: Tick; drid?: string }) => JSX.Element | null;
+  tickRenderer: (props: { tick: Tick; drid?: string }) => JSX.Element | null;
 }) => {
   const [tickLabelRef, { width, height }] = useMeasure<HTMLDivElement>();
 
@@ -25,13 +25,12 @@ export const LabelComponent = ({
     // delibrately added this as we can have name for axis when axis type is category but highcharts doesn't provide proper types
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    const value = tick?.axis?.names?.[tick.pos] ?? tick?.axis.categories?.[tick.pos] ?? tick?.pos;
+   
   return (
     <Fragment>
       {createPortal(
         <div ref={tickLabelRef} className={className}>
-          {value}
-          {/* {tickRenderer({ drid, tick })} */}
+          {tickRenderer({ tick })}
         </div>,
         tick.label.element
       )}

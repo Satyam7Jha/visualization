@@ -171,7 +171,10 @@ const OPTIONS = {
     },
     "xAxis": [
       {
-        CustomComponent:()=><div>dummy</div>,
+        CustomComponent:({tick}:{tick:any})=>{
+          const value = tick?.axis?.names?.[tick.pos] ?? tick?.axis.categories?.[tick.pos] ?? tick?.pos;
+          return  value
+        },
         "labels": {
           "x": -16,
           "useHTML": true,
@@ -196,7 +199,10 @@ const OPTIONS = {
     "yAxis": [
       
       {
-        CustomComponent:()=><div>dummy</div>,
+        CustomComponent:({tick}:{tick:any})=>{
+          const value = tick?.axis?.names?.[tick.pos] ?? tick?.axis.categories?.[tick.pos] ?? tick?.pos;
+          return  value
+        },
         "allowDecimals": false,
         "gridLineColor": "rgba(205,206,214, 1)",
         "gridLineDashStyle": "Dot",

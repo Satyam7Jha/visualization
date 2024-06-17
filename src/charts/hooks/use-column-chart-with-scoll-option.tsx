@@ -2,8 +2,6 @@ const OPTIONS = {
     "chart": {
       "type": "column",
       "events": {},
-      "marginTop": 24,
-      marginBottom:100
     },
     "legend": {
       "enabled": true,
@@ -276,7 +274,10 @@ const OPTIONS = {
         },
         min:0,
         max:10,
-        CustomComponent:()=><div>dummy</div>,
+        CustomComponent:({tick}:{tick:any})=>{
+          const value = tick?.axis?.names?.[tick.pos] ?? tick?.axis.categories?.[tick.pos] ?? tick?.pos;
+          return  value
+        },
         "labels": {
           "y": 20,
           "useHTML": true,
@@ -351,7 +352,10 @@ const OPTIONS = {
     ],
     "yAxis": [
       {
-        CustomComponent:()=><div>dummy</div>,
+        CustomComponent:({tick}:{tick:any})=>{
+          const value = tick?.axis?.names?.[tick.pos] ?? tick?.axis.categories?.[tick.pos] ?? tick?.pos;
+          return  value
+        },
         "allowDecimals": false,
         "gridLineColor": "rgba(205,206,214, 1)",
         "gridLineDashStyle": "Dot",
