@@ -17,8 +17,6 @@ function App() {
        <BaseChart options={barChart} />
        <h1 className=' text-5xl'>2.Column chart</h1>
        <BaseChart options={columnChartWithScroll} />
-       {/* <h1 className=' text-5xl'>3.Column chart with loading in axis</h1>
-       <BaseChart options={columnChartWithAxisLoader} /> */}
 
    </div>
   );  
