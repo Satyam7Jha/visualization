@@ -18,7 +18,6 @@ function App() {
       symbolHeight: 0,
       symbolWidth: 0,
       useHTML: true,
-      y: null,
     },
     plotOptions: {
       series: {
