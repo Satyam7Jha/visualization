@@ -238,9 +238,7 @@ function App() {
   };
 
   return (
-    <div className='w-[530px] h-[230px]' >
     <BaseChart options={OPTIONS} />
-    </div>
   );
 }
 
