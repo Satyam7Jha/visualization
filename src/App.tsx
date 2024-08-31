@@ -200,8 +200,11 @@ function App() {
       },
       useHTML: true,
     },
+    navigator: {
+      enabled: false // Disables the navigator
+  },
     xAxis: [
-      {
+{
         labels: {
           useHTML: true,
           y: 20,
