@@ -1,4 +1,4 @@
-import Highcharts, { Options, Tick } from "highcharts";
+import Highcharts, { Options, Tick } from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import _isEmpty from 'lodash/isEmpty';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -79,6 +79,7 @@ export const BaseChart = ({ options }:{
     <div className="flex flex-col w-full h-full p-10" >
       <div className="flex-1 min-h-0">
         <HighchartsReact
+         constructorType={'stockChart'}
           ref={chartRef}
           containerProps={CHART_CONTAINER_PROPS}
           highcharts={Highcharts}

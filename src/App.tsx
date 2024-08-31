@@ -200,8 +200,11 @@ function App() {
       },
       useHTML: true,
     },
+    navigator: {
+      enabled: false // Disables the navigator
+  },
     xAxis: [
-      {
+{
         labels: {
           useHTML: true,
           y: 20,
@@ -238,9 +241,7 @@ function App() {
   };
 
   return (
-    <div className='w-[530px] h-[230px]' >
     <BaseChart options={OPTIONS} />
-    </div>
   );
 }
 
