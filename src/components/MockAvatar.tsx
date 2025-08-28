@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tick } from 'highcharts';
 
 interface MockAvatarProps {
@@ -22,6 +22,20 @@ export const MockAvatar: React.FC<MockAvatarProps> = ({ tick }) => {
   // Get a consistent user based on the tick position (category index)
   const userIndex = Math.abs(Math.floor(tick.pos)) % mockUsers.length;
   const user = mockUsers[userIndex];
+  const [isLoading, setIsLoading] = useState(true);
+  const randomDelay = Math.floor(Math.random() * 10000) + 500;
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, randomDelay);
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center">
+       Loading...
+      </div>
+    );
+  }
 
   return (
     <div className="flex items-center justify-center">
